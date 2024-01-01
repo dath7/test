@@ -25,9 +25,9 @@ class MyApp extends ConsumerWidget {
     final userStatus = ref.watch(userProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {
-        "/home": (BuildContext context) => HomeScreen(),
-      },
+      // routes: {
+      //   "/home": (BuildContext context) => HomeScreen(),
+      // },
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       home: userStatus.when(
