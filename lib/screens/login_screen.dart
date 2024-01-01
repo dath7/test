@@ -147,28 +147,24 @@ class _LoginScreenState extends State<LoginScreen> {
                             try {
                               showDialog(
                                 context: context,
-                                builder: (context) =>
-                                    const CircularProgressIndicator(),
+                                builder: (context) => const Center(
+                                    child: CircularProgressIndicator()),
                               );
 
                               await FirebaseAuth.instance
                                   .signInWithEmailAndPassword(
                                       email: _emailController.text,
                                       password: _passwordController.text)
-                                  .whenComplete(() =>
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                              content:
-                                                  Text("Sign in succesfully"))))
-                                  .whenComplete(() =>
-                                      Navigator.pushNamed(context, "/home"));
-                              // showDialog(
-                              //     context: context,
-                              //     builder: (context) =>
-                              //         const CircularProgressIndicator());
-                            } on FirebaseAuthException catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(e.message!)));
+                                  .whenComplete(() => Navigator.pop(
+                                      context)); // turn off circular process
+                            } catch (e) {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return const AlertDialog(
+                                      title: Text("Fail to sign in "),
+                                    );
+                                  });
                             }
                           },
                           style: ButtonStyle(

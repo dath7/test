@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:test_vais/model/friend.dart';
 
@@ -23,8 +25,30 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Icon(Icons.menu), Text("Contacts"), Icon(Icons.search)],
+          children: [Text("Contacts"), Icon(Icons.search)],
         ),
+      ),
+      drawer: Drawer(
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+          const Text("Hello"),
+          ElevatedButton(
+              onPressed: () async {
+                showDialog(
+                  context: context,
+                  builder: (context) =>
+                      const Center(child: CircularProgressIndicator()),
+                );
+
+                await FirebaseAuth.instance.signOut().whenComplete(
+                    () => Navigator.pop(context)); // turn off circular process
+              },
+              style: const ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll<Color>(Colors.lightBlue),
+              ),
+              child: const Text("Sign out"))
+        ]),
       ),
       body: ListView.builder(
         itemCount: 10,
