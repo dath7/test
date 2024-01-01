@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -141,10 +143,28 @@ class _LoginScreenState extends State<LoginScreen> {
                               )),
                         ),
                         ElevatedButton(
-                          onPressed: () {
-                            if (_emailController.text == "test@vais.vn" &&
-                                _passwordController.text == "Test1234") {
-                              Navigator.pushNamed(context, "/home");
+                          onPressed: () async {
+                            try {
+                              showDialog(
+                                context: context,
+                                builder: (context) => const Center(
+                                    child: CircularProgressIndicator()),
+                              );
+
+                              await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                      email: _emailController.text,
+                                      password: _passwordController.text)
+                                  .whenComplete(() => Navigator.pop(
+                                      context)); // turn off circular process
+                            } catch (e) {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return const AlertDialog(
+                                      title: Text("Fail to sign in "),
+                                    );
+                                  });
                             }
                           },
                           style: ButtonStyle(
@@ -161,7 +181,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Sign in",
                             style: TextStyle(color: Colors.white),
                           ),
-                        )
+                        ),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Don't have an account? Sign up",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  decoration: TextDecoration.underline),
+                            )),
                       ],
                     )),
               ],
