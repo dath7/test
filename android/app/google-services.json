@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784142485911",
+    "project_id": "vais-5cb93",
+    "storage_bucket": "vais-5cb93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784142485911:android:66fa37f9b3232012561cd2",
+        "android_client_info": {
+          "package_name": "com.example.test_vais"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2PQwbXe19v07jxkyid0qon0D6CLdHYHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

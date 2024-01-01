@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -141,10 +143,32 @@ class _LoginScreenState extends State<LoginScreen> {
                               )),
                         ),
                         ElevatedButton(
-                          onPressed: () {
-                            if (_emailController.text == "test@vais.vn" &&
-                                _passwordController.text == "Test1234") {
-                              Navigator.pushNamed(context, "/home");
+                          onPressed: () async {
+                            try {
+                              showDialog(
+                                context: context,
+                                builder: (context) =>
+                                    const CircularProgressIndicator(),
+                              );
+
+                              await FirebaseAuth.instance
+                                  .signInWithEmailAndPassword(
+                                      email: _emailController.text,
+                                      password: _passwordController.text)
+                                  .whenComplete(() =>
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content:
+                                                  Text("Sign in succesfully"))))
+                                  .whenComplete(() =>
+                                      Navigator.pushNamed(context, "/home"));
+                              // showDialog(
+                              //     context: context,
+                              //     builder: (context) =>
+                              //         const CircularProgressIndicator());
+                            } on FirebaseAuthException catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(e.message!)));
                             }
                           },
                           style: ButtonStyle(
@@ -161,7 +185,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             "Sign in",
                             style: TextStyle(color: Colors.white),
                           ),
-                        )
+                        ),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Don't have an account? Sign up",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  decoration: TextDecoration.underline),
+                            )),
                       ],
                     )),
               ],
