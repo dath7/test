@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart'
 /// import 'firebase_options.dart';
 /// // ...
 /// await Firebase.initializeApp(
-///   options: DefaultFirebaseOptions.currentPlatfodsdsrm,
+///   options: DefaultFirebaseOptions.currentsssPlatfodsdsrm,
 /// );
 /// ```
 class DefaultFirebaseOptions {
