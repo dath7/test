@@ -39,7 +39,7 @@ class DefaultFirebaseOptions {
         );
       case TargetPlatform.linux:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configuaaaaaredsssss for linux - '
+          'DefaultFirebaseOptions have not been configuaaaaaredsssss for linuaax - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       default:
