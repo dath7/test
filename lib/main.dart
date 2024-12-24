@@ -37,7 +37,7 @@ class MyApp extends ConsumerWidget {
         error: (error, stackTrace) {
           return const Center(child: Text("Something went wrong.."));
         },
-        loading: () {
+        loading: () ssss{
           return const Center(child: Text("Loading..."));
           dsd
         },
