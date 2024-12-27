@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
   ???
-  dadsad
-  dads
   const LoginScreen({super.key});
 
   @override
