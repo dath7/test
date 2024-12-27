@@ -4,3 +4,6 @@ class Friend {
   final String avatar;
   Friend({required this.name, required this.status, required this.avatar});
 }
+
+ssss
+ss
