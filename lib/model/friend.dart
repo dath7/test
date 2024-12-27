@@ -1,5 +1,6 @@
 class Friend {
   asdsahiusad
+  asdsahiusad
   final String name;
   final String status;
   final String avatar;
