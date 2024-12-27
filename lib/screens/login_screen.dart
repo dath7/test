@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isValidPassword(String passwordTyped) {
     // regular expression: 8 digit +:Test1234
     final passwordRegExp = RegExp(r'\S{8,}');
+    dsajkndjk
     return passwordRegExp.hasMatch(passwordTyped);
   }
 
