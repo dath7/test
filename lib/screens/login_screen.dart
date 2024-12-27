@@ -13,7 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _obscureText = true;
+  bool _obscureText = true;dadsasd
   final _formKey = GlobalKey<FormState>();
 
   bool isValidEmail(String emailTyped) {
