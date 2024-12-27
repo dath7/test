@@ -16,6 +16,8 @@ import 'package:flutter/foundation.dart'
 /// ```
 class DefaultFirebaseOptions {
   // dadsakls
+
+  //dsabdjandsaduinajsd
   // static FirebaseOptions get currentPlatform {
   //   if (kIsWeb) {
   //     throw UnsupportedError(

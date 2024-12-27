@@ -1,4 +1,10 @@
+import 'package:flutter/rendering.dart';
+
 class Friend {
+  asdsahiusad
+  asdsahiusad
+  SetSelectionHandler
+  ss
   final String name;
   final String status;
   final String avatar;
